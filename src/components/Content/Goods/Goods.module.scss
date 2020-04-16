@@ -1,0 +1,200 @@
+$colGutter: 20px;
+$colourTemplate: #007bff;
+
+.main__title {
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: $colGutter;
+  grid-row-gap: 40px;
+  margin: 0 0 60px;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  li {
+
+  }
+}
+
+.goods-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px 0 #000;
+  transition: transform .3s, box-shadow .3s;
+
+  &:hover {
+    position: relative;
+    box-shadow: 0 15px 10px -10px #000;
+    transform: translateY(-10px) scale(1.05);
+    z-index: 10;
+  }
+}
+
+.goods-card--top {
+  position: relative;
+  box-shadow: 0 5px 10px 0 $colourTemplate;
+
+  &:hover {
+    box-shadow: 0 15px 10px -10px $colourTemplate;
+  }
+
+  &:before {
+    content: 'BEST SALES';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $colourTemplate;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+  }
+}
+
+.goods-card__cover {
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  padding-bottom: 55%;
+  overflow: hidden;
+}
+
+.goods-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.goods-card__title {
+  flex-grow: 1;
+  margin: 0;
+  padding: 10px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.goods-card__description {
+  flex-grow: 1;
+  margin: 0;
+  padding: 10px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.goodsCard__price {
+  flex-grow: 1;
+  margin: 0;
+  padding: 10px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.goods-card__button {
+  display: block;
+  background-color: transparent;
+  border-radius: 3px;
+  border: 1px solid $colourTemplate;
+  margin: 0 15px 15px;
+  padding: 6px;
+  color: #000;
+  font-size: 1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .3s, color .3s;
+
+  &:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+}
+
+.goods-card__quantity {
+  display: flex;
+  padding: 6px;
+  justify-content: center;
+}
+
+.goods-card__button-less {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 3px;
+  border: 1px solid $colourTemplate;
+  margin: 0 15px 15px;
+  color: #000;
+  font-size: 1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .3s, color .3s;
+
+  &:hover {
+    background-color: $colourTemplate;
+    color: #fff;
+  }
+}
+
+.goods-card__button-more {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 3px;
+  border: 1px solid $colourTemplate;
+  margin: 0 15px 15px;
+  color: #000;
+  font-size: 1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .3s, color .3s;
+
+  &:hover {
+    background-color: $colourTemplate;
+    color: #fff;
+  }
+}
+
+.goods-card__input {
+  width: 30px;
+  height: 25px;
+  text-align: center;
+}
