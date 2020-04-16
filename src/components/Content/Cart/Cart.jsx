@@ -1,5 +1,5 @@
 import React from "react";
-import cls from "../Goods/Goods.module.scss";
+import cls from "../GoodsList/GoodsList.module.scss";
 
 const Cart = () => {
     return (
