@@ -2,15 +2,14 @@ import React from "react";
 import cls from "./GoodsItem.module.scss";
 
 const GoodsItem = ({items}) => {
-    debugger
     return (
         items.map(i =>
             <li>
-                <article className={` ${cls["goods-card"]} ${cls["goods-card--top"]}`}>
+                <article className={` ${cls["goods-card"]} ${i.bestSales ? cls["goods-card--top"] : ""}`}>
                     <div className={cls["goods-card__cover"]}>
                         <img className={cls["goods-card__image"]} src={i.img} alt=""/>
                     </div>
-                    <h3 className={cls["goods-card__title"]}>{i.title}</h3>
+                    <h3 className={cls["goods-card__title"]}>{i.name}</h3>
                     <div className={cls["goods-card__description"]}>{i.description}</div>
                     <div className={cls["goodsCard__price"]}>Price: {i.price}$</div>
                     <div className={cls["goods-card__quantity"]}>

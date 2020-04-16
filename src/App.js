@@ -9,6 +9,7 @@ import store from "./redux/store";
 
 function App() {
     return (
+        <div className="font-size">
         <BrowserRouter>
             <Provider store={store}>
                 <Header/>
@@ -16,6 +17,7 @@ function App() {
                 <Footer/>
             </Provider>
         </BrowserRouter>
+        </div>
     );
 }
 
