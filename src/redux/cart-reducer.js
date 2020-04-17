@@ -1,4 +1,4 @@
-const ADD_ITEM = "ADD_ITEM";
+const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";
 
 let initialState = {
     order: []
@@ -6,10 +6,10 @@ let initialState = {
 
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_ITEM: {
+        case ADD_ITEM_TO_CART: {
             return {
                 ...state,
-                order: action.item
+                order: [action.item, ...state.order]
             }
         }
         default:
@@ -17,9 +17,9 @@ const cartReducer = (state = initialState, action) => {
     }
 }
 
-export const AddItemActionCreator = (item) => {
+export const AddItemToCartActionCreator = (item) => {
     return {
-        type: ADD_ITEM, item
+        type: ADD_ITEM_TO_CART, item
     }
 }
 

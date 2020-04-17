@@ -1,7 +1,8 @@
 import React from "react";
 import cls from "./GoodsItem.module.scss";
 
-const GoodsItem = ({items}) => {
+const GoodsItem = ({items, CountUpActionCreator, CountDownActionCreator, AddItemToCartActionCreator}) => {
+
     return (
         items.map(i =>
             <li>
@@ -12,15 +13,15 @@ const GoodsItem = ({items}) => {
                     <h3 className={cls["goods-card__title"]}>{i.name}</h3>
                     <div className={cls["goods-card__description"]}>{i.description}</div>
                     <div className={cls["goodsCard__price"]}>Price: {i.price}$</div>
-                    {i.quantity > 0
+                    {i.inventory > 0
                         ? <>
                             <div className={cls["goods-card__quantity"]}>
-                            <button className={cls["goods-card__button-less"]}>-</button>
+                            <button onClick={() => CountDownActionCreator(i.id)} className={cls["goods-card__button-less"]}>-</button>
                             <input className={cls["goods-card__input"]} type="text" name="count" aria-label="count"
-                                   placeholder="0"/>
-                            <button className={cls["goods-card__button-more"]}>+</button>
+                                   placeholder={i.quantity} />
+                            <button onClick={() => CountUpActionCreator(i.id)} className={cls["goods-card__button-more"]}>+</button>
                         </div>
-                        <button className={cls["goods-card__button"]}>Add Cart</button>
+                        <button onClick={() => AddItemToCartActionCreator(i)} className={cls["goods-card__button"]}>Add Cart</button>
                         </>
                         : <button disabled className={cls["goods-card__button-disabled"]}>Sold Out</button>}
                 </article>

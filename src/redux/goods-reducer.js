@@ -1,4 +1,5 @@
-const CHANGE_ITEM_QUANTITY = "CHANGE_ITEM_QUANTITY";
+const UP_ITEM_QUANTITY = "UP_ITEM_QUANTITY";
+const DOWN_ITEM_QUANTITY = "DOWN_ITEM_QUANTITY";
 
 let initialState = {
     items: [
@@ -7,8 +8,9 @@ let initialState = {
             img: "https://i.ibb.co/r5vG7V2/item-1.png",
             name: "Prada",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
-            price: "60",
-            quantity: 10,
+            price: 60,
+            inventory: 10,
+            quantity: 1,
             bestSales: true
         },
         {
@@ -16,8 +18,9 @@ let initialState = {
             img: "https://i.ibb.co/4S91btW/item-2.png",
             name: "Ray Ban",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
-            price: "20",
-            quantity: 15,
+            price: 20,
+            inventory: 15,
+            quantity: 1,
             bestSales: false
         },
         {
@@ -25,8 +28,9 @@ let initialState = {
             img: "https://i.ibb.co/ryXsyVn/item-3.png",
             name: "Gucci",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
-            price: "240",
-            quantity: 20,
+            price: 240,
+            inventory: 20,
+            quantity: 1,
             bestSales: true
         },
         {
@@ -34,7 +38,8 @@ let initialState = {
             img: "https://i.ibb.co/wsyx0gm/item-4.png",
             name: "Oakley",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
-            price: "70",
+            price: 70,
+            inventory: 1,
             quantity: 1,
             bestSales: false
         },
@@ -43,8 +48,9 @@ let initialState = {
             img: "https://i.ibb.co/Pz6M12X/item-5.png",
             name: "Michael Kors",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
-            price: "10",
-            quantity: 0,
+            price: 10,
+            inventory: 0,
+            quantity: 1,
             bestSales: false
         },
         {
@@ -52,8 +58,9 @@ let initialState = {
             img: "https://i.ibb.co/D9Cmtxz/item-6.png",
             name: "Tory Barch",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
-            price: "150",
-            quantity: 0,
+            price: 150,
+            inventory: 0,
+            quantity: 1,
             bestSales: true
         },
         {
@@ -61,8 +68,9 @@ let initialState = {
             img: "https://i.ibb.co/5GzVRC2/item-7.png",
             name: "Prada",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
-            price: "650",
-            quantity: 60,
+            price: 650,
+            inventory: 60,
+            quantity: 1,
             bestSales: true
         },
         {
@@ -70,8 +78,9 @@ let initialState = {
             img: "https://i.ibb.co/FbDXMYr/item-8.png",
             name: "Calvin Klein",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
-            price: "30",
-            quantity: 12,
+            price: 30,
+            inventory: 12,
+            quantity: 1,
             bestSales: false
         },
         {
@@ -79,8 +88,9 @@ let initialState = {
             img: "https://i.ibb.co/VVsr3Nn/item-9.png",
             name: "Saint Laurent",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
-            price: "20",
-            quantity: 12,
+            price: 20,
+            inventory: 12,
+            quantity: 1,
             bestSales: false
         }
     ]
@@ -88,14 +98,46 @@ let initialState = {
 
 const goodsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case CHANGE_ITEM_QUANTITY: {
+        case UP_ITEM_QUANTITY: {
             return {
                 ...state,
-                profile: action.profile
+                items: state.items.map(item => {
+                    if (item.id === action.payload) {
+                        item.quantity +=1;
+                    }
+                    return item
+                })
+            }
+        }
+        case DOWN_ITEM_QUANTITY: {
+            return {
+                ...state,
+                items: state.items.map(item => {
+                    if (item.id === action.payload) {
+                        if (item.quantity > 0) {
+                            item.quantity -=1;
+                        } else {
+                            item.quantity = 0;
+                        }
+                    }
+                    return item
+                })
             }
         }
         default:
             return state;
+    }
+}
+
+export const CountUpActionCreator = (payload) => {
+    return {
+        type: UP_ITEM_QUANTITY, payload
+    }
+}
+
+export const CountDownActionCreator = (payload) => {
+    return {
+        type: DOWN_ITEM_QUANTITY, payload
     }
 }
 
