@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/glassesCart/static/css/main.a630d48a.chunk.css",
+    "main.js": "/glassesCart/static/js/main.446e33e7.chunk.js",
+    "main.js.map": "/glassesCart/static/js/main.446e33e7.chunk.js.map",
+    "runtime-main.js": "/glassesCart/static/js/runtime-main.25245939.js",
+    "runtime-main.js.map": "/glassesCart/static/js/runtime-main.25245939.js.map",
+    "static/js/2.5d8e3af4.chunk.js": "/glassesCart/static/js/2.5d8e3af4.chunk.js",
+    "static/js/2.5d8e3af4.chunk.js.map": "/glassesCart/static/js/2.5d8e3af4.chunk.js.map",
+    "index.html": "/glassesCart/index.html",
+    "precache-manifest.50cef4df94db4dc1fb0a61cf81415b4c.js": "/glassesCart/precache-manifest.50cef4df94db4dc1fb0a61cf81415b4c.js",
+    "service-worker.js": "/glassesCart/service-worker.js",
+    "static/css/main.a630d48a.chunk.css.map": "/glassesCart/static/css/main.a630d48a.chunk.css.map",
+    "static/js/2.5d8e3af4.chunk.js.LICENSE.txt": "/glassesCart/static/js/2.5d8e3af4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.25245939.js",
+    "static/js/2.5d8e3af4.chunk.js",
+    "static/css/main.a630d48a.chunk.css",
+    "static/js/main.446e33e7.chunk.js"
+  ]
+}
