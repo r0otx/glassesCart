@@ -8,6 +8,7 @@ let initialState = {
             name: "Prada",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: "60",
+            quantity: 10,
             bestSales: true
         },
         {
@@ -16,6 +17,7 @@ let initialState = {
             name: "Ray Ban",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: "20",
+            quantity: 15,
             bestSales: false
         },
         {
@@ -24,6 +26,7 @@ let initialState = {
             name: "Gucci",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: "240",
+            quantity: 20,
             bestSales: true
         },
         {
@@ -32,6 +35,7 @@ let initialState = {
             name: "Oakley",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: "70",
+            quantity: 1,
             bestSales: false
         },
         {
@@ -40,6 +44,7 @@ let initialState = {
             name: "Michael Kors",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: "10",
+            quantity: 0,
             bestSales: false
         },
         {
@@ -48,6 +53,7 @@ let initialState = {
             name: "Tory Barch",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: "150",
+            quantity: 0,
             bestSales: true
         },
         {
@@ -56,6 +62,7 @@ let initialState = {
             name: "Prada",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: "650",
+            quantity: 60,
             bestSales: true
         },
         {
@@ -64,6 +71,7 @@ let initialState = {
             name: "Calvin Klein",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: "30",
+            quantity: 12,
             bestSales: false
         },
         {
@@ -72,6 +80,7 @@ let initialState = {
             name: "Saint Laurent",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: "20",
+            quantity: 12,
             bestSales: false
         }
     ]

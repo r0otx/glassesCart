@@ -1,4 +1,4 @@
-const REMOVE_ITEM = "REMOVE_ITEM";
+const ADD_ITEM = "ADD_ITEM";
 
 let initialState = {
     order: []
@@ -6,14 +6,20 @@ let initialState = {
 
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
-        case REMOVE_ITEM: {
+        case ADD_ITEM: {
             return {
                 ...state,
-                item: action.del
+                order: action.item
             }
         }
         default:
             return state;
+    }
+}
+
+export const AddItemActionCreator = (item) => {
+    return {
+        type: ADD_ITEM, item
     }
 }
 
