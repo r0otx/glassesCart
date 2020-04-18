@@ -5,7 +5,7 @@ const GoodsItem = ({items, CountUpActionCreator, CountDownActionCreator, AddItem
 
     return (
         items.map(i =>
-            <li>
+            <li key={i.id}>
                 <article className={` ${cls["goods-card"]} ${i.bestSales ? cls["goods-card--top"] : ""}`}>
                     <div className={cls["goods-card__cover"]}>
                         <img className={cls["goods-card__image"]} src={i.img} alt=""/>

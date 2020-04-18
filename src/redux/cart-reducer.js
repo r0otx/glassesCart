@@ -1,4 +1,5 @@
 const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";
+const DELETE_ITEM_OF_CART = "DELETE_ITEM_OF_CART";
 
 let initialState = {
     order: []
@@ -20,6 +21,12 @@ const cartReducer = (state = initialState, action) => {
 export const AddItemToCartActionCreator = (item) => {
     return {
         type: ADD_ITEM_TO_CART, item
+    }
+}
+
+export const DeleteItemOfCartActionCreator = (item) => {
+    return {
+        type: DELETE_ITEM_OF_CART, item
     }
 }
 

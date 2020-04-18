@@ -1,4 +1,3 @@
-import React from "react";
 import GoodsItem from "./GoodsItem";
 import {connect} from "react-redux";
 import {CountDownActionCreator, CountUpActionCreator} from "../../../../redux/goods-reducer";

@@ -1,11 +1,15 @@
 import React from "react";
-import cls from "../GoodsList/GoodsList.module.scss";
+import cls from "./Cart.module.scss";
+import CartItem from "./CartItem/CartItem";
 
 const Cart = () => {
     return (
-        <h2 className={cls["main__title"]}>
-            Cart Items
-        </h2>
+        <div>
+            <h2 className={cls["main__title"]}>
+                My Cart
+            </h2>
+                <CartItem/>
+        </div>
     );
 };
 
