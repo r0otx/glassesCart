@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/glassesCart/static/css/main.03f9c831.chunk.css",
-    "main.js": "/glassesCart/static/js/main.8f4bae43.chunk.js",
-    "main.js.map": "/glassesCart/static/js/main.8f4bae43.chunk.js.map",
+    "main.js": "/glassesCart/static/js/main.c7294e39.chunk.js",
+    "main.js.map": "/glassesCart/static/js/main.c7294e39.chunk.js.map",
     "runtime-main.js": "/glassesCart/static/js/runtime-main.25245939.js",
     "runtime-main.js.map": "/glassesCart/static/js/runtime-main.25245939.js.map",
     "static/js/2.eecfd2a9.chunk.js": "/glassesCart/static/js/2.eecfd2a9.chunk.js",
     "static/js/2.eecfd2a9.chunk.js.map": "/glassesCart/static/js/2.eecfd2a9.chunk.js.map",
     "index.html": "/glassesCart/index.html",
-    "precache-manifest.979b794e9accec5442a41eacd1eee14d.js": "/glassesCart/precache-manifest.979b794e9accec5442a41eacd1eee14d.js",
+    "precache-manifest.da8fea1614fa7ca213fde5a17da52758.js": "/glassesCart/precache-manifest.da8fea1614fa7ca213fde5a17da52758.js",
     "service-worker.js": "/glassesCart/service-worker.js",
     "static/css/main.03f9c831.chunk.css.map": "/glassesCart/static/css/main.03f9c831.chunk.css.map",
     "static/js/2.eecfd2a9.chunk.js.LICENSE.txt": "/glassesCart/static/js/2.eecfd2a9.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.25245939.js",
     "static/js/2.eecfd2a9.chunk.js",
     "static/css/main.03f9c831.chunk.css",
-    "static/js/main.8f4bae43.chunk.js"
+    "static/js/main.c7294e39.chunk.js"
   ]
 }
