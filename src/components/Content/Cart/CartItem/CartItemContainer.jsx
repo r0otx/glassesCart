@@ -1,4 +1,3 @@
-import React from "react";
 import {connect} from "react-redux";
 import CartItem from "./CartItem";
 import {
@@ -6,6 +5,7 @@ import {
     CountUpCartActionCreator,
     DeleteItemOfCartActionCreator
 } from "../../../../redux/cart-reducer";
+import {ToggleInCartActionCreator} from "../../../../redux/goods-reducer";
 
 let mapDispatchToProps = (state) => ({
     items: state.cartPage.order,
@@ -13,4 +13,4 @@ let mapDispatchToProps = (state) => ({
 });
 
 export default connect(mapDispatchToProps, {DeleteItemOfCartActionCreator,
-    CountUpCartActionCreator, CountDownCartActionCreator})(CartItem)
+    CountUpCartActionCreator, CountDownCartActionCreator, ToggleInCartActionCreator})(CartItem)

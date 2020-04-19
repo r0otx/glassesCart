@@ -55,7 +55,8 @@ $colourTemplate: #007bff;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
+  padding: 15px;
   height: 100%;
   object-fit: contain;
   object-position: center;
@@ -108,7 +109,7 @@ $colourTemplate: #007bff;
 
 .goods-card__button-disabled {
   display: block;
-  background-color: rgba(112, 101, 114, 0.56);
+  background-color: #ff253a3b;
   border-radius: 3px;
   border: 1px solid $colourTemplate;
   margin: 0 15px 15px;
@@ -126,28 +127,7 @@ $colourTemplate: #007bff;
   justify-content: center;
 }
 
-.goods-card__button-less {
-  display: block;
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  border-radius: 3px;
-  border: 1px solid $colourTemplate;
-  margin: 0 15px 15px;
-  color: #000;
-  font-size: 1rem;
-  text-transform: uppercase;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: background-color .3s, color .3s;
-
-  &:hover {
-    background-color: $colourTemplate;
-    color: #fff;
-  }
-}
-
-.goods-card__button-more {
+.goods-card__button-count {
   display: block;
   width: 30px;
   height: 30px;

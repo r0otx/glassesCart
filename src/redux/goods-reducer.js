@@ -1,5 +1,7 @@
 const UP_ITEM_QUANTITY = "UP_ITEM_QUANTITY";
 const DOWN_ITEM_QUANTITY = "DOWN_ITEM_QUANTITY";
+const MARK_IN_CART = "MARK_IN_CART";
+const TOGGLE_GOODS_OF_CART = "TOGGLE_GOODS_OF_CART";
 
 let initialState = {
     items: [
@@ -19,7 +21,7 @@ let initialState = {
             name: "Ray Ban",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: 20,
-            inventory: 15,
+            inventory: 0,
             quantity: 1,
             bestSales: false
         },
@@ -59,7 +61,7 @@ let initialState = {
             name: "Tory Barch",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: 150,
-            inventory: 0,
+            inventory: 2,
             quantity: 1,
             bestSales: true
         },
@@ -89,7 +91,7 @@ let initialState = {
             name: "Saint Laurent",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus dolore ea fuga incidunt iste iure, necessitatibus odio praesentium quod sint soluta tempore voluptatum. A adipisci culpa dignissimos excepturi modi!",
             price: 20,
-            inventory: 12,
+            inventory: 0,
             quantity: 1,
             bestSales: false
         }
@@ -124,6 +126,28 @@ const goodsReducer = (state = initialState, action) => {
                 })
             }
         }
+        case MARK_IN_CART: {
+            return {
+                ...state,
+                items: state.items.map(item => {
+                    if (item.id === action.item) {
+                        return {...item, inCart: true}
+                    }
+                    return item
+                })
+            }
+        }
+        case TOGGLE_GOODS_OF_CART: {
+            return {
+                ...state,
+                items: state.items.map(item => {
+                    if (item.id === action.item) {
+                        return {...item, inCart: false}
+                    }
+                    return item
+                })
+            }
+        }
         default:
             return state;
     }
@@ -138,6 +162,18 @@ export const CountUpActionCreator = (payload) => {
 export const CountDownActionCreator = (payload) => {
     return {
         type: DOWN_ITEM_QUANTITY, payload
+    }
+}
+
+export const MarkInCartActionCreator = (item) => {
+    return {
+        type: MARK_IN_CART, item
+    }
+}
+
+export const ToggleInCartActionCreator = (item) => {
+    return {
+        type: TOGGLE_GOODS_OF_CART, item
     }
 }
 

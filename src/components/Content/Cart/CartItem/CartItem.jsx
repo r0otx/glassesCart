@@ -1,7 +1,8 @@
 import React from "react";
 import cls from "./CartItem.module.scss";
 
-const CartItem = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreator, CountDownCartActionCreator, shippingFee}) => {
+const CartItem = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreator,
+                      CountDownCartActionCreator, shippingFee, ToggleInCartActionCreator}) => {
 
     let cartGoods = items.map(i =>
         <div key={i.id} className={cls["item"]}>
@@ -19,13 +20,13 @@ const CartItem = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreato
             <div className={cls["item__quantity"]}>
                 <button onClick={() => CountDownCartActionCreator(i.id)} className={cls["item__quantity_button-count"]}>-</button>
                 <input className={cls["item__quantity_input"]} type="text" name="count" aria-label="count"
-                       placeholder={i.quantity} />
+                       value={i.quantity} />
                 <button onClick={() => CountUpCartActionCreator(i.id)} className={cls["item__quantity_button-count"]}>+</button>
             </div>
             <div className={cls["item__total"]}>
                 <div className={cls["item__total-price"]}>{i.quantity * i.price}$</div>
                 <div className={cls["item__total-remove"]}>
-                    <button onClick={() => DeleteItemOfCartActionCreator(i.id)} className={cls["item__quantity_button-count"]}>x</button>
+                    <button onClick={() => {DeleteItemOfCartActionCreator(i.id); ToggleInCartActionCreator(i.id)}} className={cls["item__quantity_button-count"]}>x</button>
                 </div>
             </div>
         </div>
