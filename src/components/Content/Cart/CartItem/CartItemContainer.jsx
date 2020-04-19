@@ -8,7 +8,8 @@ import {
 } from "../../../../redux/cart-reducer";
 
 let mapDispatchToProps = (state) => ({
-    items: state.cartPage.order
+    items: state.cartPage.order,
+    shippingFee: state.cartPage.shippingFee
 });
 
 export default connect(mapDispatchToProps, {DeleteItemOfCartActionCreator,

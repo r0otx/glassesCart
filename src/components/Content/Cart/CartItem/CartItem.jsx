@@ -1,7 +1,7 @@
 import React from "react";
 import cls from "./CartItem.module.scss";
 
-const CartItem = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreator, CountDownCartActionCreator}) => {
+const CartItem = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreator, CountDownCartActionCreator, shippingFee}) => {
 
     let cartGoods = items.map(i =>
         <div key={i.id} className={cls["item"]}>
@@ -29,7 +29,9 @@ const CartItem = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreato
                 </div>
             </div>
         </div>
-    )
+    );
+
+    let subTotal = items.map(i => i.price * i.quantity).reduce((a, b) => a + b, 0);
 
     return (
         <div className={cls["wrapper"]}>
@@ -39,15 +41,15 @@ const CartItem = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreato
             <div className={cls["col-2"]}>
                 <div className={cls["total__subtotal"]}>
                     <div className={cls["total__subtotal_name"]}>Subtotal</div>
-                    <div className={cls["total__subtotal_cost"]}>225$</div>
+                    <div className={cls["total__subtotal_cost"]}>{subTotal}$</div>
                 </div>
                 <div className={cls["total__shipping"]}>
                     <div className={cls["total__shipping_name"]}>Shipping Fee</div>
-                    <div className={cls["total__shipping_cost"]}>10$</div>
+                    <div className={cls["total__shipping_cost"]}>{shippingFee}$</div>
                 </div>
                 <div className={cls["total__cost"]}>
                     <div className={cls["total__cost_name"]}>Order Total</div>
-                    <div className={cls["total__cost_cost"]}>235$</div>
+                    <div className={cls["total__cost_cost"]}>{subTotal + shippingFee}$</div>
                 </div>
                 <div className={cls["total__buy"]}>
                     <button className={cls["total__buy_button-proceed"]}>Proceed to Checkout</button>

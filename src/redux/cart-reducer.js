@@ -4,7 +4,8 @@ const UP_CART_QUANTITY = "UP_CART_QUANTITY";
 const DOWN_CART_QUANTITY = "DOWN_CART_QUANTITY";
 
 let initialState = {
-    order: []
+    order: [],
+    shippingFee: 10
 }
 
 const cartReducer = (state = initialState, action) => {
