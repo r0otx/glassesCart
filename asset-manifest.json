@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/glassesCart/static/css/main.afd3b1c2.chunk.css",
-    "main.js": "/glassesCart/static/js/main.ef31f988.chunk.js",
-    "main.js.map": "/glassesCart/static/js/main.ef31f988.chunk.js.map",
+    "main.css": "/glassesCart/static/css/main.03f9c831.chunk.css",
+    "main.js": "/glassesCart/static/js/main.955eedb7.chunk.js",
+    "main.js.map": "/glassesCart/static/js/main.955eedb7.chunk.js.map",
     "runtime-main.js": "/glassesCart/static/js/runtime-main.25245939.js",
     "runtime-main.js.map": "/glassesCart/static/js/runtime-main.25245939.js.map",
     "static/js/2.eecfd2a9.chunk.js": "/glassesCart/static/js/2.eecfd2a9.chunk.js",
     "static/js/2.eecfd2a9.chunk.js.map": "/glassesCart/static/js/2.eecfd2a9.chunk.js.map",
     "index.html": "/glassesCart/index.html",
-    "precache-manifest.b2cbefa76fd9f70406fb3a15cbf09329.js": "/glassesCart/precache-manifest.b2cbefa76fd9f70406fb3a15cbf09329.js",
+    "precache-manifest.d73858c2449e4590131960a20ae1fa1d.js": "/glassesCart/precache-manifest.d73858c2449e4590131960a20ae1fa1d.js",
     "service-worker.js": "/glassesCart/service-worker.js",
-    "static/css/main.afd3b1c2.chunk.css.map": "/glassesCart/static/css/main.afd3b1c2.chunk.css.map",
+    "static/css/main.03f9c831.chunk.css.map": "/glassesCart/static/css/main.03f9c831.chunk.css.map",
     "static/js/2.eecfd2a9.chunk.js.LICENSE.txt": "/glassesCart/static/js/2.eecfd2a9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.25245939.js",
     "static/js/2.eecfd2a9.chunk.js",
-    "static/css/main.afd3b1c2.chunk.css",
-    "static/js/main.ef31f988.chunk.js"
+    "static/css/main.03f9c831.chunk.css",
+    "static/js/main.955eedb7.chunk.js"
   ]
 }
