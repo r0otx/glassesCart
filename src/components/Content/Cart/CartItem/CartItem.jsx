@@ -33,6 +33,8 @@ const CartItem = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreato
 
     let subTotal = items.map(i => i.price * i.quantity).reduce((a, b) => a + b, 0);
 
+    let orderTotal = subTotal + shippingFee;
+
     return (
         <div className={cls["wrapper"]}>
             <div className={cls["col-1"]}>
@@ -49,7 +51,7 @@ const CartItem = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreato
                 </div>
                 <div className={cls["total__cost"]}>
                     <div className={cls["total__cost_name"]}>Order Total</div>
-                    <div className={cls["total__cost_cost"]}>{subTotal + shippingFee}$</div>
+                    <div className={cls["total__cost_cost"]}>{items.length > 0 ? orderTotal : 0}$</div>
                 </div>
                 <div className={cls["total__buy"]}>
                     <button className={cls["total__buy_button-proceed"]}>Proceed to Checkout</button>
