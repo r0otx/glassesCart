@@ -51,6 +51,24 @@ $colourTemplate: #007bff;
   }
 }
 
+.item__empty {
+  display: flex;
+  height: 100%;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+
+  @media (max-width: 480px) {
+    width: 75vh;
+    flex-direction: column;
+  }
+  @media (max-width: 992px) {
+    width: 35vh;
+    flex-direction: column;
+  }
+}
+
 .item__image {
   width: 100%;
   align-self: center;

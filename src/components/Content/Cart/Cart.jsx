@@ -1,6 +1,6 @@
 import React from "react";
 import cls from "./Cart.module.scss";
-import CartItem from "./CartItem/CartItem";
+import CartItemContainer from "./CartItem/CartItemContainer";
 
 const Cart = () => {
     return (
@@ -8,7 +8,7 @@ const Cart = () => {
             <h2 className={cls["main__title"]}>
                 My Cart
             </h2>
-                <CartItem/>
+                <CartItemContainer />
         </div>
     );
 };

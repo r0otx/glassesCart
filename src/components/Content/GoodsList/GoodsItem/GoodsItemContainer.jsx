@@ -8,4 +8,5 @@ let mapStateToProps = (state) => ({
         quantity: state.goodsPage.quantity
 })
 
-export default connect(mapStateToProps, {CountUpActionCreator, CountDownActionCreator, AddItemToCartActionCreator})(GoodsItem);
+export default connect(mapStateToProps, {CountUpActionCreator,
+        CountDownActionCreator, AddItemToCartActionCreator})(GoodsItem);
