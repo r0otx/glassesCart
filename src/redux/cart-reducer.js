@@ -19,14 +19,14 @@ const cartReducer = (state = initialState, action) => {
         case DELETE_ITEM_OF_CART: {
             return {
                 ...state,
-                order: state.order.filter(item => item.id !== action.item)
+                order: state.order.filter(item => item.id !== action.id)
             }
         }
         case UP_CART_QUANTITY: {
             return {
                 ...state,
                 order: state.order.map(item => {
-                    if (item.id === action.payload) {
+                    if (item.id === action.id) {
                         item.quantity +=1;
                     }
                     return item
@@ -37,7 +37,7 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 order: state.order.map(item => {
-                    if (item.id === action.payload) {
+                    if (item.id === action.id) {
                         if (item.quantity > 1) {
                             item.quantity -=1;
                         } else {
@@ -59,21 +59,21 @@ export const AddItemToCartActionCreator = (item) => {
     }
 }
 
-export const DeleteItemOfCartActionCreator = (item) => {
+export const DeleteItemOfCartActionCreator = (id) => {
     return {
-        type: DELETE_ITEM_OF_CART, item
+        type: DELETE_ITEM_OF_CART, id
     }
 }
 
-export const CountUpCartActionCreator = (payload) => {
+export const CountUpCartActionCreator = (id) => {
     return {
-        type: UP_CART_QUANTITY, payload
+        type: UP_CART_QUANTITY, id
     }
 }
 
-export const CountDownCartActionCreator = (payload) => {
+export const CountDownCartActionCreator = (id) => {
     return {
-        type: DOWN_CART_QUANTITY, payload
+        type: DOWN_CART_QUANTITY, id
     }
 }
 

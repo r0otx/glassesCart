@@ -104,7 +104,7 @@ const goodsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 items: state.items.map(item => {
-                    if (item.id === action.payload) {
+                    if (item.id === action.id) {
                         item.quantity +=1;
                     }
                     return item
@@ -115,7 +115,7 @@ const goodsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 items: state.items.map(item => {
-                    if (item.id === action.payload) {
+                    if (item.id === action.id) {
                         if (item.quantity > 1) {
                             item.quantity -=1;
                         } else {
@@ -130,7 +130,7 @@ const goodsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 items: state.items.map(item => {
-                    if (item.id === action.item) {
+                    if (item.id === action.id) {
                         return {...item, inCart: true}
                     }
                     return item
@@ -141,7 +141,7 @@ const goodsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 items: state.items.map(item => {
-                    if (item.id === action.item) {
+                    if (item.id === action.id) {
                         return {...item, inCart: false}
                     }
                     return item
@@ -153,27 +153,27 @@ const goodsReducer = (state = initialState, action) => {
     }
 }
 
-export const CountUpActionCreator = (payload) => {
+export const CountUpActionCreator = (id) => {
     return {
-        type: UP_ITEM_QUANTITY, payload
+        type: UP_ITEM_QUANTITY, id
     }
 }
 
-export const CountDownActionCreator = (payload) => {
+export const CountDownActionCreator = (id) => {
     return {
-        type: DOWN_ITEM_QUANTITY, payload
+        type: DOWN_ITEM_QUANTITY, id
     }
 }
 
-export const MarkInCartActionCreator = (item) => {
+export const MarkInCartActionCreator = (id) => {
     return {
-        type: MARK_IN_CART, item
+        type: MARK_IN_CART, id
     }
 }
 
-export const ToggleInCartActionCreator = (item) => {
+export const ToggleInCartActionCreator = (id) => {
     return {
-        type: TOGGLE_GOODS_OF_CART, item
+        type: TOGGLE_GOODS_OF_CART, id
     }
 }
 
