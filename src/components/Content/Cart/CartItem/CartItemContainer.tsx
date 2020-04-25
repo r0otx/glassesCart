@@ -6,8 +6,9 @@ import {
     DeleteItemOfCartActionCreator
 } from "../../../../redux/cart-reducer";
 import {ToggleInCartActionCreator} from "../../../../redux/goods-reducer";
+import {AppStateTypes} from "../../../../redux/store";
 
-let mapDispatchToProps = (state) => ({
+let mapDispatchToProps = (state: AppStateTypes) => ({
     items: state.cartPage.order,
     shippingFee: state.cartPage.shippingFee
 });

@@ -1,8 +1,18 @@
 import React from "react";
 import cls from "./CartItem.module.scss";
+import {InitialStateItemsType} from "../../../../types";
 
-const CartItem = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreator,
-                      CountDownCartActionCreator, shippingFee, ToggleInCartActionCreator}) => {
+type PropsTypes = {
+    items: Array<InitialStateItemsType>
+    DeleteItemOfCartActionCreator: (i: number) => void
+    CountUpCartActionCreator: (i: number) => void
+    CountDownCartActionCreator: (i: number) => void
+    ToggleInCartActionCreator: (i: number) => void
+    shippingFee: number
+}
+
+const CartItem: React.FC<PropsTypes> = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreator,
+                      CountDownCartActionCreator, shippingFee, ToggleInCartActionCreator}): any => {
 
     let cartGoods = items.map(i =>
         <div key={i.id} className={cls["item"]}>

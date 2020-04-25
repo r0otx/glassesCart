@@ -59,9 +59,9 @@ const cartReducer = (state = initialState, action: any): InitialStateType => {
 
 type AddItemToCartActionType = {
     type: typeof ADD_ITEM_TO_CART
-    item: Array<InitialStateItemsType>
+    item: InitialStateItemsType
 }
-export const AddItemToCartActionCreator = (item: Array<InitialStateItemsType>):AddItemToCartActionType => {
+export const AddItemToCartActionCreator = (item: InitialStateItemsType):AddItemToCartActionType => {
     return {
         type: ADD_ITEM_TO_CART, item
     }

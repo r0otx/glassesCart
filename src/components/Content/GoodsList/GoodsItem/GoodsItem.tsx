@@ -1,8 +1,20 @@
 import React from "react";
 import cls from "./GoodsItem.module.scss";
+import {InitialStateItemsType} from "../../../../types";
 
-const GoodsItem = ({items, CountUpActionCreator, CountDownActionCreator, AddItemToCartActionCreator,
-                       MarkInCartActionCreator, DeleteItemOfCartActionCreator, ToggleInCartActionCreator}) => {
+type PropsTypes = {
+    items: Array<InitialStateItemsType>
+    CountUpActionCreator: (i: number) => void
+    CountDownActionCreator: (i: number) => void
+    AddItemToCartActionCreator: (i: InitialStateItemsType) => void
+    MarkInCartActionCreator: (i: number) => void
+    DeleteItemOfCartActionCreator: (i: number) => void
+    ToggleInCartActionCreator: (i: number) => void
+}
+
+const GoodsItem: React.FC<PropsTypes> = ({items, CountUpActionCreator, CountDownActionCreator,
+                                             AddItemToCartActionCreator, MarkInCartActionCreator,
+                                             DeleteItemOfCartActionCreator, ToggleInCartActionCreator}): any => {
 
     return (
         items.map(i =>

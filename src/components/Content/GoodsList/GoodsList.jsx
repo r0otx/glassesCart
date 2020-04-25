@@ -2,7 +2,7 @@ import React from "react";
 import cls from "./GoodsList.module.scss";
 import GoodsItemContainer from "./GoodsItem/GoodsItemContainer";
 
-const GoodsList = (props) => {
+const GoodsList = () => {
     return (
         <div>
             <h2 className={cls["main__title"]}>
