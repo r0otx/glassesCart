@@ -1,14 +1,18 @@
+import {InitialStateItemsType} from "../types";
+
 const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";
 const DELETE_ITEM_OF_CART = "DELETE_ITEM_OF_CART";
 const UP_CART_QUANTITY = "UP_CART_QUANTITY";
 const DOWN_CART_QUANTITY = "DOWN_CART_QUANTITY";
 
+type InitialStateType = typeof initialState;
+
 let initialState = {
-    order: [],
-    shippingFee: 10
+    order: [] as Array<InitialStateItemsType>,
+    shippingFee: 10 as number
 }
 
-const cartReducer = (state = initialState, action) => {
+const cartReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case ADD_ITEM_TO_CART: {
             return {
@@ -53,25 +57,41 @@ const cartReducer = (state = initialState, action) => {
     }
 }
 
-export const AddItemToCartActionCreator = (item) => {
+type AddItemToCartActionType = {
+    type: typeof ADD_ITEM_TO_CART
+    item: Array<InitialStateItemsType>
+}
+export const AddItemToCartActionCreator = (item: Array<InitialStateItemsType>):AddItemToCartActionType => {
     return {
         type: ADD_ITEM_TO_CART, item
     }
 }
 
-export const DeleteItemOfCartActionCreator = (id) => {
+type DeleteItemOfCartActionType = {
+    type: typeof DELETE_ITEM_OF_CART
+    id: number
+}
+export const DeleteItemOfCartActionCreator = (id: number): DeleteItemOfCartActionType => {
     return {
         type: DELETE_ITEM_OF_CART, id
     }
 }
 
-export const CountUpCartActionCreator = (id) => {
+type CountUpCartActionType = {
+    type: typeof UP_CART_QUANTITY
+    id: number
+}
+export const CountUpCartActionCreator = (id: number): CountUpCartActionType => {
     return {
         type: UP_CART_QUANTITY, id
     }
 }
 
-export const CountDownCartActionCreator = (id) => {
+type CountDownCartActionType = {
+    type: typeof DOWN_CART_QUANTITY
+    id: number
+}
+export const CountDownCartActionCreator = (id: number): CountDownCartActionType => {
     return {
         type: DOWN_CART_QUANTITY, id
     }

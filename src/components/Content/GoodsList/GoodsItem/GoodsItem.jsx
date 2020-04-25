@@ -1,6 +1,5 @@
 import React from "react";
 import cls from "./GoodsItem.module.scss";
-import {DeleteItemOfCartActionCreator} from "../../../../redux/cart-reducer";
 
 const GoodsItem = ({items, CountUpActionCreator, CountDownActionCreator, AddItemToCartActionCreator,
                        MarkInCartActionCreator, DeleteItemOfCartActionCreator, ToggleInCartActionCreator}) => {

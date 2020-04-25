@@ -1,8 +1,11 @@
+import {InitialStateItemsType} from "../types";
+
 const UP_ITEM_QUANTITY = "UP_ITEM_QUANTITY";
 const DOWN_ITEM_QUANTITY = "DOWN_ITEM_QUANTITY";
 const MARK_IN_CART = "MARK_IN_CART";
 const TOGGLE_GOODS_OF_CART = "TOGGLE_GOODS_OF_CART";
 
+type InitialStateType = typeof initialState;
 let initialState = {
     items: [
         {
@@ -95,10 +98,10 @@ let initialState = {
             quantity: 1,
             bestSales: false
         }
-    ]
+    ] as Array<InitialStateItemsType>
 }
 
-const goodsReducer = (state = initialState, action) => {
+const goodsReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case UP_ITEM_QUANTITY: {
             return {
@@ -153,25 +156,41 @@ const goodsReducer = (state = initialState, action) => {
     }
 }
 
-export const CountUpActionCreator = (id) => {
+type CountUpActionType = {
+    type: typeof UP_ITEM_QUANTITY
+    id: number
+}
+export const CountUpActionCreator = (id: number): CountUpActionType => {
     return {
         type: UP_ITEM_QUANTITY, id
     }
 }
 
-export const CountDownActionCreator = (id) => {
+type CountDownActionType = {
+    type: typeof DOWN_ITEM_QUANTITY
+    id: number
+}
+export const CountDownActionCreator = (id: number): CountDownActionType => {
     return {
         type: DOWN_ITEM_QUANTITY, id
     }
 }
 
-export const MarkInCartActionCreator = (id) => {
+type MarkInCartActionType = {
+    type: typeof MARK_IN_CART
+    id: number
+}
+export const MarkInCartActionCreator = (id: number): MarkInCartActionType => {
     return {
         type: MARK_IN_CART, id
     }
 }
 
-export const ToggleInCartActionCreator = (id) => {
+type ToggleInCartActionType = {
+    type: typeof TOGGLE_GOODS_OF_CART
+    id: number
+}
+export const ToggleInCartActionCreator = (id: number): ToggleInCartActionType => {
     return {
         type: TOGGLE_GOODS_OF_CART, id
     }
