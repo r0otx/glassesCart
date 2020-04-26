@@ -5,14 +5,19 @@ const DELETE_ITEM_OF_CART = "DELETE_ITEM_OF_CART";
 const UP_CART_QUANTITY = "UP_CART_QUANTITY";
 const DOWN_CART_QUANTITY = "DOWN_CART_QUANTITY";
 
-type InitialStateType = typeof initialState;
-
-let initialState = {
-    order: [] as Array<InitialStateItemsType>,
-    shippingFee: 10 as number
+type InitialStateType = {
+    order: Array<InitialStateItemsType>
+    shippingFee: number
 }
 
-const cartReducer = (state = initialState, action: any): InitialStateType => {
+let initialState: InitialStateType = {
+    order: [],
+    shippingFee: 10
+}
+
+type ActionsTypes = AddItemToCartActionType | DeleteItemOfCartActionType | CountUpCartActionType | CountDownCartActionType
+
+const cartReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case ADD_ITEM_TO_CART: {
             return {
@@ -61,7 +66,7 @@ type AddItemToCartActionType = {
     type: typeof ADD_ITEM_TO_CART
     item: InitialStateItemsType
 }
-export const AddItemToCartActionCreator = (item: InitialStateItemsType):AddItemToCartActionType => {
+export const addItemToCartActionCreator = (item: InitialStateItemsType):AddItemToCartActionType => {
     return {
         type: ADD_ITEM_TO_CART, item
     }
@@ -71,7 +76,7 @@ type DeleteItemOfCartActionType = {
     type: typeof DELETE_ITEM_OF_CART
     id: number
 }
-export const DeleteItemOfCartActionCreator = (id: number): DeleteItemOfCartActionType => {
+export const deleteItemOfCartActionCreator = (id: number): DeleteItemOfCartActionType => {
     return {
         type: DELETE_ITEM_OF_CART, id
     }
@@ -81,7 +86,7 @@ type CountUpCartActionType = {
     type: typeof UP_CART_QUANTITY
     id: number
 }
-export const CountUpCartActionCreator = (id: number): CountUpCartActionType => {
+export const countUpCartActionCreator = (id: number): CountUpCartActionType => {
     return {
         type: UP_CART_QUANTITY, id
     }
@@ -91,7 +96,7 @@ type CountDownCartActionType = {
     type: typeof DOWN_CART_QUANTITY
     id: number
 }
-export const CountDownCartActionCreator = (id: number): CountDownCartActionType => {
+export const countDownCartActionCreator = (id: number): CountDownCartActionType => {
     return {
         type: DOWN_CART_QUANTITY, id
     }

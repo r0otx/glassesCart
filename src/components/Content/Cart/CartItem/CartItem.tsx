@@ -3,7 +3,7 @@ import cls from "./CartItem.module.scss";
 import {InitialStateItemsType} from "../../../../types";
 
 type PropsTypes = {
-    items: Array<InitialStateItemsType>
+    order: Array<InitialStateItemsType>
     DeleteItemOfCartActionCreator: (i: number) => void
     CountUpCartActionCreator: (i: number) => void
     CountDownCartActionCreator: (i: number) => void
@@ -11,10 +11,10 @@ type PropsTypes = {
     shippingFee: number
 }
 
-const CartItem: React.FC<PropsTypes> = ({items, DeleteItemOfCartActionCreator, CountUpCartActionCreator,
-                      CountDownCartActionCreator, shippingFee, ToggleInCartActionCreator}): any => {
+const CartItem: React.FC<PropsTypes> = ({order, DeleteItemOfCartActionCreator, CountUpCartActionCreator,
+                      CountDownCartActionCreator, shippingFee, ToggleInCartActionCreator}) => {
 
-    let cartGoods = items.map(i =>
+    let cartGoods = order.map(i =>
         <div key={i.id} className={cls["item"]}>
             <div className={cls["item__image"]}>
                 <img src={i.img} alt="Img"/>
@@ -42,7 +42,7 @@ const CartItem: React.FC<PropsTypes> = ({items, DeleteItemOfCartActionCreator, C
         </div>
     );
 
-    let subTotal = items.map(i => i.price * i.quantity).reduce((a, b) => a + b, 0);
+    let subTotal = order.map(i => i.price * i.quantity).reduce((a, b) => a + b, 0);
 
     let orderTotal = subTotal + shippingFee;
 
@@ -62,7 +62,7 @@ const CartItem: React.FC<PropsTypes> = ({items, DeleteItemOfCartActionCreator, C
                 </div>
                 <div className={cls["total__cost"]}>
                     <div className={cls["total__cost_name"]}>Order Total</div>
-                    <div className={cls["total__cost_cost"]}>{items.length > 0 ? orderTotal : 0}$</div>
+                    <div className={cls["total__cost_cost"]}>{order.length > 0 ? orderTotal : 0}$</div>
                 </div>
                 <div className={cls["total__buy"]}>
                     <button className={cls["total__buy_button-proceed"]}>Proceed to Checkout</button>

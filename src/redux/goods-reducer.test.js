@@ -1,13 +1,13 @@
 import goodsReducer, {
-    CountDownActionCreator,
-    CountUpActionCreator,
-    MarkInCartActionCreator,
-    ToggleInCartActionCreator
+    countDownActionCreator,
+    countUpActionCreator,
+    markInCartActionCreator,
+    toggleInCartActionCreator
 } from "./goods-reducer";
 
 test('Increment item count', () => {
     let id = 1
-    let action = CountUpActionCreator(id);
+    let action = countUpActionCreator(id);
     let state = {
         items: [
             {
@@ -39,7 +39,7 @@ test('Increment item count', () => {
 
 test('Decrement item count', () => {
     let id = 1
-    let action = CountDownActionCreator(id);
+    let action = countDownActionCreator(id);
     let state = {
         items: [
             {
@@ -71,7 +71,7 @@ test('Decrement item count', () => {
 
 test('Mark in cart item', () => {
     let id = 1
-    let action = MarkInCartActionCreator(id);
+    let action = markInCartActionCreator(id);
     let state = {
         items: [
             {
@@ -103,7 +103,7 @@ test('Mark in cart item', () => {
 
 test('Unmark of cart item', () => {
     let id = 1
-    let action = ToggleInCartActionCreator(id);
+    let action = toggleInCartActionCreator(id);
     let state = {
         items: [
             {

@@ -3,7 +3,7 @@ import cls from "./GoodsItem.module.scss";
 import {InitialStateItemsType} from "../../../../types";
 
 type PropsTypes = {
-    items: Array<InitialStateItemsType>
+    items: any[] | any
     CountUpActionCreator: (i: number) => void
     CountDownActionCreator: (i: number) => void
     AddItemToCartActionCreator: (i: InitialStateItemsType) => void
@@ -14,10 +14,10 @@ type PropsTypes = {
 
 const GoodsItem: React.FC<PropsTypes> = ({items, CountUpActionCreator, CountDownActionCreator,
                                              AddItemToCartActionCreator, MarkInCartActionCreator,
-                                             DeleteItemOfCartActionCreator, ToggleInCartActionCreator}): any => {
+                                             DeleteItemOfCartActionCreator, ToggleInCartActionCreator}) => {
 
     return (
-        items.map(i =>
+        items.map((i: InitialStateItemsType) =>
             <li key={i.id}>
                 <article className={` ${cls["goods-card"]} ${i.bestSales ? cls["goods-card--top"] : ""}`}>
                     <div className={cls["goods-card__cover"]}>

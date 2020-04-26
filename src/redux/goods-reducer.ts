@@ -5,8 +5,10 @@ const DOWN_ITEM_QUANTITY = "DOWN_ITEM_QUANTITY";
 const MARK_IN_CART = "MARK_IN_CART";
 const TOGGLE_GOODS_OF_CART = "TOGGLE_GOODS_OF_CART";
 
-type InitialStateType = typeof initialState;
-let initialState = {
+type InitialStateType = {
+    items: Array<InitialStateItemsType>
+}
+let initialState: InitialStateType = {
     items: [
         {
             id: 1,
@@ -98,10 +100,12 @@ let initialState = {
             quantity: 1,
             bestSales: false
         }
-    ] as Array<InitialStateItemsType>
+    ]
 }
 
-const goodsReducer = (state = initialState, action: any): InitialStateType => {
+type ActionsType = CountUpActionType | CountDownActionType | MarkInCartActionType | ToggleInCartActionType
+
+const goodsReducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
         case UP_ITEM_QUANTITY: {
             return {
@@ -160,7 +164,7 @@ type CountUpActionType = {
     type: typeof UP_ITEM_QUANTITY
     id: number
 }
-export const CountUpActionCreator = (id: number): CountUpActionType => {
+export const countUpActionCreator = (id: number): CountUpActionType => {
     return {
         type: UP_ITEM_QUANTITY, id
     }
@@ -170,7 +174,7 @@ type CountDownActionType = {
     type: typeof DOWN_ITEM_QUANTITY
     id: number
 }
-export const CountDownActionCreator = (id: number): CountDownActionType => {
+export const countDownActionCreator = (id: number): CountDownActionType => {
     return {
         type: DOWN_ITEM_QUANTITY, id
     }
@@ -180,7 +184,7 @@ type MarkInCartActionType = {
     type: typeof MARK_IN_CART
     id: number
 }
-export const MarkInCartActionCreator = (id: number): MarkInCartActionType => {
+export const markInCartActionCreator = (id: number): MarkInCartActionType => {
     return {
         type: MARK_IN_CART, id
     }
@@ -190,7 +194,7 @@ type ToggleInCartActionType = {
     type: typeof TOGGLE_GOODS_OF_CART
     id: number
 }
-export const ToggleInCartActionCreator = (id: number): ToggleInCartActionType => {
+export const toggleInCartActionCreator = (id: number): ToggleInCartActionType => {
     return {
         type: TOGGLE_GOODS_OF_CART, id
     }

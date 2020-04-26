@@ -1,7 +1,7 @@
 import cartReducer, {
-    AddItemToCartActionCreator, CountDownCartActionCreator,
-    CountUpCartActionCreator,
-    DeleteItemOfCartActionCreator
+    addItemToCartActionCreator, countDownCartActionCreator,
+    countUpCartActionCreator,
+    deleteItemOfCartActionCreator
 } from "./cart-reducer";
 import React from 'react';
 
@@ -16,7 +16,7 @@ test('Order should be increment', () => {
         quantity: 1,
         bestSales: false
     }
-    let action = AddItemToCartActionCreator(order);
+    let action = addItemToCartActionCreator(order);
     let state = {
         order: [
             {
@@ -46,7 +46,7 @@ test('Order should be contain name', () => {
         quantity: 1,
         bestSales: false
     }
-    let action = AddItemToCartActionCreator(order);
+    let action = addItemToCartActionCreator(order);
     let state = {
         order: [
             {
@@ -67,7 +67,7 @@ test('Order should be contain name', () => {
 
 test('Delete item of cart', () => {
     let id = 1
-    let action = DeleteItemOfCartActionCreator(id);
+    let action = deleteItemOfCartActionCreator(id);
     let state = {
         order: [
             {
@@ -98,7 +98,7 @@ test('Delete item of cart', () => {
 
 test('Increment count item in cart', () => {
     let id = 1
-    let action = CountUpCartActionCreator(id);
+    let action = countUpCartActionCreator(id);
     let state = {
         order: [
             {
@@ -130,7 +130,7 @@ test('Increment count item in cart', () => {
 
 test('Decrement count item in cart', () => {
     let id = 1
-    let action = CountDownCartActionCreator(id);
+    let action = countDownCartActionCreator(id);
     let state = {
         order: [
             {

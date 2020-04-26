@@ -7,5 +7,5 @@ export type InitialStateItemsType = {
     inventory: number
     quantity: number
     bestSales: boolean
-    inCart: boolean
+    inCart?: boolean
 }
