@@ -1,4 +1,5 @@
 import {InitialStateItemsType} from "../types";
+import {itemsAPI} from "../api";
 
 const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";
 const DELETE_ITEM_OF_CART = "DELETE_ITEM_OF_CART";
@@ -62,6 +63,7 @@ const cartReducer = (state = initialState, action: ActionsTypes): InitialStateTy
     }
 }
 
+// Action Creators
 type AddItemToCartActionType = {
     type: typeof ADD_ITEM_TO_CART
     item: InitialStateItemsType
@@ -100,6 +102,13 @@ export const countDownCartActionCreator = (id: number): CountDownCartActionType 
     return {
         type: DOWN_CART_QUANTITY, id
     }
+}
+
+//Thunks
+export const addItemToCart = (item: Array<InitialStateItemsType>) => async (dispatch: any) => {
+    let response = await itemsAPI.addCart(item);
+    // @ts-ignore
+    dispatch(addItemToCartActionCreator(response));
 }
 
 export default cartReducer;

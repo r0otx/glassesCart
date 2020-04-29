@@ -1,20 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import cls from "./GoodsItem.module.scss";
 import {InitialStateItemsType} from "../../../../types";
 
 type PropsTypes = {
     items: any[] | any
-    CountUpActionCreator: (i: number) => void
-    CountDownActionCreator: (i: number) => void
-    AddItemToCartActionCreator: (i: InitialStateItemsType) => void
-    MarkInCartActionCreator: (i: number) => void
-    DeleteItemOfCartActionCreator: (i: number) => void
-    ToggleInCartActionCreator: (i: number) => void
+    countUpActionCreator: (i: number) => void
+    countDownActionCreator: (i: number) => void
+    markInCartActionCreator: (i: number) => void
+    deleteItemOfCartActionCreator: (i: number) => void
+    toggleInCartActionCreator: (i: number) => void
+    getAllItems: () => void
+    addItemToCart: (i: any) => void
 }
 
-const GoodsItem: React.FC<PropsTypes> = ({items, CountUpActionCreator, CountDownActionCreator,
-                                             AddItemToCartActionCreator, MarkInCartActionCreator,
-                                             DeleteItemOfCartActionCreator, ToggleInCartActionCreator}) => {
+const GoodsItem: React.FC<PropsTypes> = ({items, countUpActionCreator, countDownActionCreator, getAllItems,
+                                             markInCartActionCreator, addItemToCart,
+                                             deleteItemOfCartActionCreator, toggleInCartActionCreator}) => {
+
+    useEffect(() => {
+        getAllItems()
+    }, [])
 
     return (
         items.map((i: InitialStateItemsType) =>
@@ -29,14 +34,25 @@ const GoodsItem: React.FC<PropsTypes> = ({items, CountUpActionCreator, CountDown
                     {!i.inCart
                         ? <>
                             <div className={cls["goods-card__quantity"]}>
-                            <button onClick={() => CountDownActionCreator(i.id)} className={cls["goods-card__button-count"]}>-</button>
-                            <input className={cls["goods-card__input"]} type="text" name="count" aria-label="count"
-                                   value={i.quantity} />
-                            <button onClick={() => CountUpActionCreator(i.id)} className={cls["goods-card__button-count"]}>+</button>
-                        </div>
-                        <button onClick={() => {AddItemToCartActionCreator(i); MarkInCartActionCreator(i.id)}} className={cls["goods-card__button"]}>Add Cart</button>
+                                <button onClick={() => countDownActionCreator(i.id)}
+                                        className={cls["goods-card__button-count"]}>-
+                                </button>
+                                <input className={cls["goods-card__input"]} type="text" name="count" aria-label="count"
+                                       value={i.quantity}/>
+                                <button onClick={() => countUpActionCreator(i.id)}
+                                        className={cls["goods-card__button-count"]}>+
+                                </button>
+                            </div>
+                            <button onClick={() => {
+                                addItemToCart(i);
+                                markInCartActionCreator(i.id)
+                            }} className={cls["goods-card__button"]}>Add Cart
+                            </button>
                         </>
-                        : <button onClick={() => {DeleteItemOfCartActionCreator(i.id); ToggleInCartActionCreator(i.id)}} className={cls["goods-card__button-disabled"]}>Remove from Cart</button>}
+                        : <button onClick={() => {
+                            deleteItemOfCartActionCreator(i.id);
+                            toggleInCartActionCreator(i.id)
+                        }} className={cls["goods-card__button-disabled"]}>Remove from Cart</button>}
                 </article>
             </li>
         )

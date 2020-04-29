@@ -14,10 +14,10 @@ type mapStateToPropsTypes = {
     shippingFee: number
 }
 type mapDispatchToPropsTypes = {
-    DeleteItemOfCartActionCreator: (i: number) => void
-    CountUpCartActionCreator: (i: number) => void
-    CountDownCartActionCreator: (i: number) => void
-    ToggleInCartActionCreator: (i: number) => void
+    deleteItemOfCartActionCreator: (i: number) => void
+    countUpCartActionCreator: (i: number) => void
+    countDownCartActionCreator: (i: number) => void
+    toggleInCartActionCreator: (i: number) => void
 }
 
 let mapStateToProps = (state: AppStateTypes): mapStateToPropsTypes => ({
@@ -25,5 +25,6 @@ let mapStateToProps = (state: AppStateTypes): mapStateToPropsTypes => ({
     shippingFee: state.cartPage.shippingFee
 });
 
-export default connect<mapStateToPropsTypes, mapDispatchToPropsTypes, null, AppStateTypes>(mapStateToProps, {DeleteItemOfCartActionCreator: deleteItemOfCartActionCreator,
-    CountUpCartActionCreator: countUpCartActionCreator, CountDownCartActionCreator: countDownCartActionCreator, ToggleInCartActionCreator: toggleInCartActionCreator})(CartItem)
+export default connect<mapStateToPropsTypes, mapDispatchToPropsTypes, null, AppStateTypes>(mapStateToProps,
+    {deleteItemOfCartActionCreator, countUpCartActionCreator,
+        countDownCartActionCreator, toggleInCartActionCreator})(CartItem)

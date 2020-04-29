@@ -4,15 +4,15 @@ import {InitialStateItemsType} from "../../../../types";
 
 type PropsTypes = {
     order: Array<InitialStateItemsType>
-    DeleteItemOfCartActionCreator: (i: number) => void
-    CountUpCartActionCreator: (i: number) => void
-    CountDownCartActionCreator: (i: number) => void
-    ToggleInCartActionCreator: (i: number) => void
+    deleteItemOfCartActionCreator: (i: number) => void
+    countUpCartActionCreator: (i: number) => void
+    countDownCartActionCreator: (i: number) => void
+    toggleInCartActionCreator: (i: number) => void
     shippingFee: number
 }
 
-const CartItem: React.FC<PropsTypes> = ({order, DeleteItemOfCartActionCreator, CountUpCartActionCreator,
-                      CountDownCartActionCreator, shippingFee, ToggleInCartActionCreator}) => {
+const CartItem: React.FC<PropsTypes> = ({order, deleteItemOfCartActionCreator, countUpCartActionCreator,
+                      countDownCartActionCreator, shippingFee, toggleInCartActionCreator}) => {
 
     let cartGoods = order.map(i =>
         <div key={i.id} className={cls["item"]}>
@@ -28,15 +28,15 @@ const CartItem: React.FC<PropsTypes> = ({order, DeleteItemOfCartActionCreator, C
                 </div>
             </div>
             <div className={cls["item__quantity"]}>
-                <button onClick={() => CountDownCartActionCreator(i.id)} className={cls["item__quantity_button-count"]}>-</button>
+                <button onClick={() => countDownCartActionCreator(i.id)} className={cls["item__quantity_button-count"]}>-</button>
                 <input className={cls["item__quantity_input"]} type="text" name="count" aria-label="count"
                        value={i.quantity} />
-                <button onClick={() => CountUpCartActionCreator(i.id)} className={cls["item__quantity_button-count"]}>+</button>
+                <button onClick={() => countUpCartActionCreator(i.id)} className={cls["item__quantity_button-count"]}>+</button>
             </div>
             <div className={cls["item__total"]}>
                 <div className={cls["item__total-price"]}>{i.quantity * i.price}$</div>
                 <div className={cls["item__total-remove"]}>
-                    <button onClick={() => {DeleteItemOfCartActionCreator(i.id); ToggleInCartActionCreator(i.id)}} className={cls["item__quantity_button-count"]}>x</button>
+                    <button onClick={() => {deleteItemOfCartActionCreator(i.id); toggleInCartActionCreator(i.id)}} className={cls["item__quantity_button-count"]}>x</button>
                 </div>
             </div>
         </div>
