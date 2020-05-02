@@ -28,6 +28,9 @@ const Header = () => {
                         <NavLink to={"/"} className={cls["header__nav-link"]}>Shop</NavLink>
                     </li>
                     <li className={cls["header__nav-item"]}>
+                        <NavLink to={"/auth"} className={cls["header__nav-link"]}>Login</NavLink>
+                    </li>
+                    <li className={cls["header__nav-item"]}>
                         <NavLink to={"/cart"} className={cls["header__nav-link"]}><FontAwesomeIcon icon={faShoppingBag}/></NavLink>
                     </li>
                 </ul>

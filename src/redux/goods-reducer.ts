@@ -1,6 +1,5 @@
 import {InitialStateItemsType} from "../types";
 import {itemsAPI} from "../api";
-import {AppStateTypes} from "./store";
 
 const UP_ITEM_QUANTITY = "UP_ITEM_QUANTITY";
 const DOWN_ITEM_QUANTITY = "DOWN_ITEM_QUANTITY";
