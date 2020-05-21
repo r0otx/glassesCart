@@ -5,12 +5,12 @@ import CartGoods from "./CartGoods/CartGoods";
 
 type PropsTypes = {
     order: Array<InitialStateItemsType>
-    deleteItemOfCartActionCreator: (i: number) => void
-    countUpCartActionCreator: (i: number) => void
-    countDownCartActionCreator: (i: number) => void
-    toggleInCartActionCreator: (i: number) => void
-    getSubTotal: (i: number) => void
-    getOrderTotal: (i: number) => void
+    deleteItemOfCartActionCreator: (item: number) => void
+    countUpCartActionCreator: (item: number) => void
+    countDownCartActionCreator: (item: number) => void
+    toggleInCartActionCreator: (item: number) => void
+    getSubTotal: (item: number) => void
+    getOrderTotal: (item: number) => void
     shippingFee: number
 }
 

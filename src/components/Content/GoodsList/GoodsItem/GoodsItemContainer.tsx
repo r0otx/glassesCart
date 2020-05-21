@@ -18,14 +18,14 @@ type mapStateToPropsTypes = {
         items: Array<InitialStateItemsType>
 }
 type mapDispatchToPropsTypes = {
-        countUpActionCreator: (i: number) => void
-        countDownActionCreator: (i: number) => void
-        addItemToCartActionCreator: (i: InitialStateItemsType) => void
-        markInCartActionCreator: (i: number) => void
-        deleteItemOfCartActionCreator: (i: number) => void
-        toggleInCartActionCreator: (i: number) => void
+        countUpActionCreator: (item: number) => void
+        countDownActionCreator: (item: number) => void
+        addItemToCartActionCreator: (item: InitialStateItemsType) => void
+        markInCartActionCreator: (item: number) => void
+        deleteItemOfCartActionCreator: (item: number) => void
+        toggleInCartActionCreator: (item: number) => void
         getAllItems: () => void
-        addItemToCart: (i: Array<InitialStateItemsType>) => void
+        addItemToCart: (item: Array<InitialStateItemsType>) => void
 }
 
 let mapStateToProps = (state: AppStateTypes): mapStateToPropsTypes => ({
