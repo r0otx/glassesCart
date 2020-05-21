@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-import {setLogin, setLogout, setRegistration} from "../../../redux/auth-reducer";
+import {setLogin, setRegistration} from "../../../redux/auth-reducer";
 import cls from "./Auth.module.scss";
 
 const Auth = () => {
@@ -12,9 +12,9 @@ const Auth = () => {
 
     let handleSubmit = (e) => {
         if (!register) {
-            dispatch(setLogin(email, password));
-        } else {
             dispatch(setRegistration(email, password));
+        } else {
+            dispatch(setLogin(email, password));
         }
         e.preventDefault();
     }
@@ -39,16 +39,15 @@ const Auth = () => {
                 <div>
                     <button>Submit</button>
                 </div>
-                <div>
                     {register
-                        ? <button onClick={() => setRegister(false)}>Register</button>
-                        : <button onClick={() => setRegister(true)}>Login</button>}
-                </div>
+                        ? <button type="button" onClick={() => setRegister(false)}>Register</button>
+                        : <button type="button" onClick={() => setRegister(true)}>Login</button>}
 {/*                <div>
                     <button onClick={() => dispatch(setLogout())}>Logout</button>
                 </div>*/}
                 </div>
             </form>
+
         </div>
         </div>
     );

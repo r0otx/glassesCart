@@ -3,6 +3,7 @@ import cartReducer from "./cart-reducer";
 import goodsReducer from "./goods-reducer";
 import thunkMiddleware from "redux-thunk";
 import authReducer from "./auth-reducer";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 type ReducersType = typeof reducers;
 export type AppStateTypes = ReturnType<ReducersType>
@@ -13,9 +14,6 @@ let reducers = combineReducers({
     authPage: authReducer
 });
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware));
-
-// @ts-ignore
-window.store = store;
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware)));
 
 export default store;

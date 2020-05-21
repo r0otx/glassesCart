@@ -7,12 +7,10 @@ const MARK_IN_CART = "MARK_IN_CART";
 const TOGGLE_GOODS_OF_CART = "TOGGLE_GOODS_OF_CART";
 const SET_ITEMS = "SET_ITEMS";
 
-type InitialStateType = {
-    items: any[] | any
-}
+type InitialStateType = any[] | any;
 let initialState: InitialStateType = {
     items: []
-}
+};
 
 // Action Creators
 type ActionsType = SetItemsType | CountUpActionType | CountDownActionType | MarkInCartActionType | ToggleInCartActionType

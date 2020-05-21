@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import CartItem from "./CartItem";
+import CartItems from "./CartItems";
 import {
     countDownCartActionCreator,
     countUpCartActionCreator,
@@ -8,6 +8,7 @@ import {
 import {toggleInCartActionCreator} from "../../../../redux/goods-reducer";
 import {AppStateTypes} from "../../../../redux/store";
 import {InitialStateItemsType} from "../../../../types";
+import {getOrderSelector, getShippingFeeSelector, getSubTotal, getOrderTotal} from "../../../../redux/cart-selectors";
 
 type mapStateToPropsTypes = {
     order: Array<InitialStateItemsType>
@@ -21,10 +22,14 @@ type mapDispatchToPropsTypes = {
 }
 
 let mapStateToProps = (state: AppStateTypes): mapStateToPropsTypes => ({
-    order: state.cartPage.order,
-    shippingFee: state.cartPage.shippingFee
+    order: getOrderSelector(state),
+    shippingFee: getShippingFeeSelector(state),
+    // @ts-ignore
+    getSubTotal: getSubTotal(state),
+    // @ts-ignore
+    getOrderTotal: getOrderTotal(state)
 });
 
 export default connect<mapStateToPropsTypes, mapDispatchToPropsTypes, null, AppStateTypes>(mapStateToProps,
     {deleteItemOfCartActionCreator, countUpCartActionCreator,
-        countDownCartActionCreator, toggleInCartActionCreator})(CartItem)
+        countDownCartActionCreator, toggleInCartActionCreator})(CartItems)

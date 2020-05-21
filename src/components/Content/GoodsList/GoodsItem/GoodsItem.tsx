@@ -18,8 +18,8 @@ const GoodsItem: React.FC<PropsTypes> = ({items, countUpActionCreator, countDown
                                              deleteItemOfCartActionCreator, toggleInCartActionCreator}) => {
 
     useEffect(() => {
-        getAllItems()
-    }, [])
+        items.length <= 0 && getAllItems()
+    }, [items, getAllItems])
 
     return (
         items.map((i: InitialStateItemsType) =>

@@ -1,6 +1,6 @@
 import React from "react";
 import cls from "./Cart.module.scss";
-import CartItemContainer from "./CartItem/CartItemContainer";
+import CartItemContainer from "./CartItems/CartItemsContainer";
 
 const Cart = () => {
     return (

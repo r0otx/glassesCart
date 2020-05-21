@@ -66,8 +66,7 @@ export const setLogout = () => async (dispatch) => {
 
 export const setRegistration = (email, password) => async (dispatch) => {
     await authAPI.register(email, password)
-        .then(response => dispatch(isRegister(response))
-            .catch(response => console.log(response)));
+        .then(response => dispatch(isRegister(response)));
 }
 
 export default authReducer;

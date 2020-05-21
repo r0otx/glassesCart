@@ -38,5 +38,4 @@ export const authAPI = {
     }
 }
 
-
 export default firebase;
